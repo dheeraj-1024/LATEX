@@ -1,37 +1,26 @@
 \documentclass{article}[a4paper,12pt,twoside]
-\usepackage{xcolor}               	%import colors
-\usepackage{graphicx}		  	%import images
-\usepackage{amsmath,amssymb} 	  	%import math 
-\graphicspath{ {./} }		  	%location for images
-\setlength{\emergencystretch}{3em}	%wrapping of text
+\usepackage{xcolor}               	% import colors
+\usepackage{graphicx}		  	% import images
+\usepackage{amsmath,amssymb} 	  	% import math 
+\graphicspath{ {./} }		  	% location for images
+\setlength{\emergencystretch}{3em}	% wrapping of text
 
 \title{Study the behaviour of Entropy of Water in Supercooled State}
 \author{Arnab Mukherjee* and Dheeraj Tembhurne}
 \definecolor{mycoloryellow}{RGB}{255,255,238}
 
 \begin{document}
-\pagecolor{mycoloryellow}               %setting color
+\pagecolor{mycoloryellow}               % setting color of page
 \twocolumn
 [                                       
 \maketitle
 \begin{abstract}
-	Water despite being a simple triatomic molecule has various anomalies. Anomalies which challange theories to an extent that it becomes difficult to ignore them and force
-/attract researchers to study them. A lot of work has been done to explain the dynamics of water in supercooled state. A supercooled state is reached when liquid is cooled 
-beyond its freezing point such that it is still in liquid phase. There are theories according to which there exists a second critical point for water, the so called LLCP(Liquid
--Liquid Critical Point). Beyond LLCP liquid water exist in two different phases HDL(High Density Liquid) and LDL(Low Density Liquid). ``Jumps'' are topic of interest while 
-studying dynamics in supercooled region. Aim of this paper/script is to study the thermodynamics of water in supercooled region via connecting the dynamics with thermodynamics
+	Water despite being a simple triatomic molecule has various anomalies...
 \end{abstract}
 \vspace{1.0cm}
 ]
 \section{Introduction}
-Water being a simple molecule has many anomalous properties (e.g. density variation with temperature around 277K). The universal nature of water force us to study such 
-anomalous properties. One of such anomalies is dynamics of water in supercooled regime. It is believed that supercooled water may exist in two phases High Density Liquid and Low
-Density Liquid. At low temperatures, Stokes-Einstein relation, \begin{equation} D=\frac{k_BT}{6\pi\eta R} \end{equation} breaks down, viscosity and diffusion gets decoupled. One of the reasons for this breakdown is occurrence of ``Translational jumps''. 
-Jumps are sudden increased motions of particles usually / typically observed at low temperatures. Snehasis had shown from in-silico experiments that after removing ``jumps'' 
-the Stokes-Einstein relation holds true even at low temperature. There are several hypothesis which try to explain jumps. According to one of them at lower temperatures the molecules translate through rugged free energy landscape moving from one local minima to another via crossing saddle points. Dynamic heterogeneity is also considered to be causing
-``jumps'' in motion of particles. At low temperatures water is usually dynamically heterogeneous i.e. there is existance of spatially separated mobile and immobile groups of 
-water molecules which differ from each other by $10^5$ orders of magnitude. Such dynamic heterogeneity is explained by development of two characteristic relaxation times at low
-temperatures, the fast and slow relaxation times (difference in Table 1) .
+Water being a simple molecule has many anomalous properties (e.g. density variation with temperature around 277K).
 \begin{table}[!hbt]
 	\centering
 	\caption{Difference between relaxation times}
@@ -46,47 +35,21 @@ temperatures, the fast and slow relaxation times (difference in Table 1) .
 \end{table}
 
 \section{Theory}
-A lot of research had been done to explain the dynamic anomalies of water in supercooled regime. The aim of this study is to look at the thermodynamics of water in supercooled
-regime.At equilibrium, dynamics can be connected to thermodynamics. Using this connection, results (of thermodynamics) can be explained by smooth transition from dynamics to 
-thermodynamics, taking help from previous studies which focused on dynamics. This connection is established by connecting diffusion with entropy.\\At low temperature diffusion 
-of molecules is dominated by jumps across local energy minima and this minima correspond to different accessible configurations, related to entropy(thermodynamic quantity).
-So translational diffusion is likely to influence translational entropy. Quantitatively this relation between diffusion and entropy is given by Adam-Gibbs equation, 
+A lot of research had been done to explain the dynamic anomalies of water in supercooled regime. Adam-Gibbs equation, 
 \begin{equation}
 	D^{-1}(T)=D^{-1}(T_o) e^{\frac{A_{A.G.}}{TS_{conf.}}} 
 \end{equation}
 where, $S_{conf.}=S_{total}-S_{vib.}$
-Here Entropy of single molecule of water is used to study the entropic behaviour at molecular level. Graph of single water molecule's entropy verses temperature is plotted
-and any anomaly if present is observed. Further if any anomaly is found an attempt will be made to explain it via ``Translational Jumps''. 
 
 \section{Simulation Details}
-Molecular Dynamics simulations were performed taking 1000 water molecules sampled using TIP5P water sample in a cubic box of length 3.4 Angstrom, for a range of temperatures betweeen 200K to 300K. Energy minimization
-was done using Steepest Descent Method followed by NVT (1 ns) and NPT (30 ns) equilibration. Final production run was done for $1 \mu s$ for every temperature. Equations of 
-motion were solved using Verlet Algorithm with time step of 1fs, coordinates were saved every 0.4 ps. Temperature was maintained using Nose-Hoover thermostat with coupling 
-constant of 0.4ps. Pressure of 1 atm was maintained using Parinello-Rahman barostat with coupling constant 0.8 ps. All simulations were done using Gromacs Software.
+Molecular Dynamics simulations were performed taking 1000 water molecules sampled using TIP5P water sample in a cubic box of length 3.4 Angstrom, for a range of temperatures betweeen 200K to 300K. 
 
 \section{Method}
-At first Entropy of Single water molecule was calculated for a range of Temperatures. Graph of Entropy (T$S^{individual}$) vs Temperature was then plotted to observe the 
-trend and anomaly (if present). The trajectories were then analysed for ``jumps''. Frames containing Jumps were then removed from the trajectory. Entropy of Single water molecule was again calculated for the sliced trajectory. Entropy obtained from calculations over whole trajectories and Entropy obtained from calculations over sliced trajectories were
-then compared to see if anomaly got removed or not.
+At first Entropy of Single water molecule was calculated for a range of Temperatures.
 %***********************************************************************************************
 %***********************************************************************************************
 \subsection{Calculation of Entropy of single water molecule}
-For the calculation of single water entropy all the water molecules were ordered/numbered in ascending order on basis of their distance(s) from the center of box. Screenshot of
-one such ordered trajectory is shown in figure 1a. Then the molecules were permuted (using permutation reduction method of Grubmuller). Screenshot of one such permuted trajectory is shown in figure 1b. The motion of each permuted water molecule if observed over whole trajectory remains constraint in/to an ellipsoid (Figure 1b). In order to calculate 
-translational entropy of single water molecule quasi-harmonic method was applied on translational motion of each individual
-water molecule. Translational fluctuation along x,y and z direction gave rise to $3 \times 3$ covariance matrix. Diagonalization of this covariance matrix gives 3 eigenvalues
-$\lambda_i$ s.t. $\omega_i = \frac{k_BT}{\lambda_i}$ using these $\omega$ values in equation 3 translational entropy of individual water molecule was obtained.
-\begin{equation}
-	\scriptsize{S_{tr.}^{QH}=k_B \sum_{i=1}^{3} \frac{h\nu/k_BT}{e^{h\nu/k_BT}-1} - ln[1-e^{\left( \frac{-h\nu}{k_BT}\right)}]}
-\end{equation}
-where, $ \nu_i=\frac{\omega_i}{2\pi} $ \\ In classical limit $ h\nu/k_BT < 1 $
-\begin{equation}
-	\begin{split}
-		S_{tr.}^{QH} & = k_B \sum_{i=1}^{3} 1-ln\left(\frac{h\nu}{k_BT}\right) \\
-					 & = C(T)+k_BTlnV
-	\end{split}
-\end{equation}
-\begin{figure}
+For the calculation of single water entropy all the water molecules were ordered/numbered in ascending order on basis of their distance(s) from the center of box. \begin{figure}
 \center{Figure 1a}
 \includegraphics[scale=0.25]{order.png}
 \center{Figure 1b}
@@ -94,57 +57,16 @@ where, $ \nu_i=\frac{\omega_i}{2\pi} $ \\ In classical limit $ h\nu/k_BT < 1 $
 \caption{Figure 1a shows the 5th ,50th, 250th, 500th molecule ordered on basis of distance from centre and figure 1b shows the same molecules permuted over 250 frames }
 \end{figure}
 \subsection{Calculation of jumps}
-Jumps occur when the medium is most hetrogenous dynamically. Any medium is most dynamically hetrogenous at characteristic time t*. In order to find characteristic time t* 
-graphs of Non-gaussian parameter (NGP) were plotted w.r.t. time for various temperatures.The NGP is the measure of devation of data from gaussianity, for gaussian distribution 
-\begin{equation}
-	3\langle r^4 \rangle=5\langle r^2 \rangle^2
-\end{equation}
-holds. Therefore deviation from gaussianity is given by,
-\begin{equation}
-	NGP=\alpha_2(t)=\frac{3\langle r^4 \rangle}{5\langle r^2 \rangle^2} - 1
-\end{equation}
-The time at which NGP was maximum was taken as characteristic time t*. Whole trajectory was hypothetically
-divided in intervals of t* giving n=T/t* (where T=Total time) divisions. Distance travelled by a molecule in each i-th division was calculated using equation,
-\begin{equation}
-	\lambda_i(t,t^*)=2R_g(t,t^*)
-\end{equation}
-\begin{equation}
-	R_g(t,t^*)=\scriptsize{\sqrt{\frac{1}{n}\sum_{i=1}^{n} [r_i(t;t^*)-r_{cm}(t;t^*)]^2}}
-\end{equation}
-where, \begin{equation}
-	\scriptsize{r_{cm}(t,t^*)=\frac{\sum_{i=1}^{n}r_i(t;t^*)}{n}}
-\end{equation}
-Van-Hove correlation function G(r,t) gives the probablity that after time t particle will travel a distance r. Theoretically, G(r,t*) is assumed to be gaussian of form,
-\begin{equation}
-      	\scriptsize{G_{self}^{theo.}(r,t^*)=\sqrt{\left( \frac{3}{2\pi\langle r^2 \rangle}  \right)^3}e^{\left(\frac{-3r^2}{2\langle r^2 \rangle}\right)}}
-\end{equation}
-but simulation results deviate slightly from gaussianity and this deviation was used to identify jumps. The graphs of $G_{Sim}$ and $G_{Theo}$ cross each other at 2 different
-values of r, naming the smaller $r_{min}$ and larger$r_{max}$, as shown in figure 2. For all $r > r_{max}$ the simulatioinal probability is more as compared to theoretical 
-probablity, which means particle travells more distance than theoretical expectation, these shall be named as ``jumps''. Any molecule travelling distance $r > r_{max}$ is
-considered to be jumping.\\ Comparing the distances values obtained using equation 7 with $r_{max}$ values we got jumps over whole trajectories. These jumps were removed from 
-trajectories using trajconv module of GROMACS and entropy calculations were performed on these cutted trajectories using same method discussed in previous subsection.
-
 %****************************************************************************************************
 %****************************************************************************************************
 \section{Results}
-\includegraphics[scale=1.15]{ngp_1.png}
-\cleardoublepage
-\includegraphics[scale=0.35]{van-hove.png}
-\cleardoublepage
-\includegraphics[scale=0.7]{before.png}
-\includegraphics[scale=0.7]{after.png}
-\cleardoublepage
 
 \section{Discussion}
-Graph of $ TS^{individual}_{translation} $ verses T is shown on previous page. TS values were calculated for 100 molecules in trajectory. Average value of this 100 TS values 
-was plotted for each value of temperature. It can be seen that for the temperature range 240K-280K a straight line can be fitted and beyond 240K the values of TS fall down 
-exponentially. Also for each point standard deviation (data obtained from TS values of 100 molecules) is shown as errorbars. It can be seen (from length of errorbars) that 
-TS values fluctuate more in low temperature region ($T<240K$) as compared to higher temperatures. It is worth noting that all points in graph of TS vs T have errorbars, the
-magnitude of errorbars for higher temperatures is too low to be observed. In order to see if ``Translational jumps'' are causing the aforementioned fluctuations, `jump' analysis
-was done on trajectories (as discussed in Methods section). Graph of TS vs T after removing ``jumps'' is also shown in Results section (on previous page). The fluctuation in
-TS values retain even after removing jumps. So, it can be said that ``Translational jumps'' don't cause fluctuation in Entropy values at low temperatures.
+Graph of $ TS^{individual}_{translation} $ verses T is shown on previous page.
 
 \section{Conclusion}
+
 \section{Acknowledgements}
+
 \section{References}
 \end{document}
